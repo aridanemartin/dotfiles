@@ -1,0 +1,13 @@
+[user]
+	name = Aridane Martín
+	email = aridanemartin@gmail.com
+
+[alias]
+	dm = diff main...HEAD
+	save = "!f() { git stash -u -m \"${1:-Game saved}\" && git stash apply && echo \"✨✨✨ \\\"${1:-Game saved}\\\" has been saved ✨✨✨\"; }; f"
+	current = rev-parse --abbrev-ref HEAD
+	last = log -1 HEAD --stat
+	undo = reset HEAD~1 --mixed
+	done = !git push origin HEAD
+	history = log --all --graph --decorate --oneline --simplify-by-decoration
+	remove = branch -d
