@@ -20,6 +20,35 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Custom functions
+# Create and enter directory
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+# Quick git operations
+gac() {
+  git add . && git commit -m "$1"
+}
+
+# Find and kill process
+fkill() {
+  ps aux | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9
+}
+
+# Quick directory navigation
+..() {
+  cd ..
+}
+
+...() {
+  cd ../..
+}
+
+....() {
+  cd ../../..
+}
+
 # Source aliases if the file exists
 if [ -f "$HOME/.aliases" ]; then
     source "$HOME/.aliases"
